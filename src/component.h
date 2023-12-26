@@ -5,6 +5,9 @@
 #include <assert.h>
 #include "raylib.h"
 
+#define COMPONENT_ALLOC(sz) malloc(sz)
+#define COMPONENT_REALLOC(dst, sz) realloc(dst, (sz))
+
 typedef struct Component_List {
 	size_t index;
 	size_t size;
