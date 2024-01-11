@@ -2,28 +2,30 @@
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <raylib.h>
 
 #include "player.h"
 #include "object.h"
+#include "literals.h"
+#include "sprite.h"
+#include "util.h"
 
 int main()
 {
-	const int window_width = 800;
-	const int window_height = 450;
 	SetConfigFlags(FLAG_WINDOW_RESIZABLE);
-	InitWindow(window_width, window_height, "Broken Time");
+	InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Broken Time");
 	SetTargetFPS(60);
 
+	init_player_sprite();
+	
 	while (!WindowShouldClose()) {
 		float dt = GetFrameTime();
 		update_player(&player, objects, dt);
 		BeginDrawing();
 		{
 			ClearBackground(BLACK);
-			for (int i = 0; i < object_count; i++) {
-				DrawRectangleRec((Rectangle) { objects[i].hitbox.x, objects[i].hitbox.y, objects[i].hitbox.width, objects[i].hitbox.height }, GRAY);
-			}
-			DrawRectangleLinesEx((Rectangle) { player.position.x, player.position.y, player.dimension.width, player.dimension.height }, 2.0f, WHITE);
+			draw_object_hitbox(objects);
+			draw_player_hitbox(player);
 		}
 		EndDrawing();
 	}
