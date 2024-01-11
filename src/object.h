@@ -4,8 +4,9 @@
 #include <raylib.h>
 
 typedef enum {
-    STATIC = 0,
-    BACKGROUND = 1
+    STATIC_ONE_WAY = 0,
+    STATIC_BOTH_WAY = 2,
+    BACKGROUND = 3
 } Object_Type;
 
 typedef struct Object2D {
@@ -15,5 +16,7 @@ typedef struct Object2D {
 
 extern Object2D objects[];
 extern size_t object_count;
+
+extern void draw_object_hitbox(Object2D *objects);
 
 #endif

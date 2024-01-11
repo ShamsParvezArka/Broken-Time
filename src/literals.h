@@ -1,0 +1,12 @@
+#ifndef LITERALS_H_
+#define LITERALS_H_
+
+#define WINDOW_WIDTH 800
+#define WINDOW_HEIGHT 450
+
+#define ACCELARATION_RATE 400
+#define JUMP_FORCE 200
+#define HORIZONTAL_VELOCITY 150
+#define JUMP_MAX 2
+
+#endif
