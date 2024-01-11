@@ -39,6 +39,11 @@
         (da)->items = NULL; \
     } while (0)             \
 
+typedef struct Dimension2D {
+    float width;
+    float height;
+} Dimension2D;
+
 #endif
 
 
